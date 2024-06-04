@@ -29,3 +29,29 @@ def print_spicy_foods(spicy_foods):
         print(f"{food['name']} ({food['cuisine']}) | Heat Level: {heat_level}")
 
 
+def get_spicy_food_by_cuisine(spicy_foods, cuisine):
+    for food in spicy_foods:
+        if food["cuisine"] == cuisine:
+            return food
+
+
+def print_spiciest_foods(spicy_foods):
+    spiciest = get_spiciest_foods(spicy_foods)
+    print_spicy_foods(spiciest)
+
+
+def get_average_heat_level(spicy_foods):
+    total_heat = sum(food["heat_level"] for food in spicy_foods)
+    num_foods = len(spicy_foods)
+    return total_heat // num_foods
+
+
+
+def create_spicy_food(spicy_foods, spicy_food):
+    spicy_foods.append(spicy_food)
+    return spicy_foods
+
+
+print("Names of spicy foods:")
+print(get_names(spicy_foods))
+print()
